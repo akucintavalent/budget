@@ -21,7 +21,18 @@ class PaymentsController < ApplicationController
 
   # POST /payments or /payments.json
   def create
-    @payment = Payment.new(payment_params)
+    if current_user.nil?
+      redirect_to payments_path
+      return
+    end
+    name = payment_params[:name]
+    amount = payment_params[:amount]
+    @payment = Payment.new(name:, amount:)
+    @payment.user_id = current_user.id
+    puts payment_params
+    payment_params[:categories].each do |category|
+      @payment.categories.push(Category.find(category)) unless category == ''
+    end
 
     respond_to do |format|
       if @payment.save
@@ -65,6 +76,6 @@ class PaymentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def payment_params
-      params.require(:payment).permit(:name, :amount)
+      params.require(:payment).permit(:name, :amount, categories: [])
     end
 end

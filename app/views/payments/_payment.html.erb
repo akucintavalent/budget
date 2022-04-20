@@ -9,4 +9,11 @@
     <%= payment.amount %>
   </p>
 
+  <div>
+    <strong>Categories:</strong>
+    <% payment.categories.each do |category| %>
+      <p><%= category.name %></p>
+    <% end %>
+  </div>
+
 </div>

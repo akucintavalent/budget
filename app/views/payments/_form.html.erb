@@ -22,6 +22,10 @@
   </div>
 
   <div>
+    <%= form.select :categories, Category.where(user_id: current_user.id).collect {|cat| [cat.name, cat.id]}, { include_blank: false }, required: true, class:"", multiple: true %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>

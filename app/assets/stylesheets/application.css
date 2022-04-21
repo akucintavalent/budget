@@ -44,7 +44,7 @@ body {
   padding: 1rem;
   border-radius: 5px;
   text-align: center;
-  font-size: 1.7rem;
+  font-size: 1rem;
   text-decoration: none;
   color: #f0f3f2 !important;
   background-color: #3678c2;
@@ -55,7 +55,7 @@ body {
 .sign-up-btn {
   padding: 1rem;
   text-align: center;
-  font-size: 1.7rem;
+  font-size: 1rem;
   text-decoration: none;
   color: #555d67;
   background-color: transparent;
@@ -67,4 +67,54 @@ body {
   flex-direction: column;
   width: 100%;
   margin-bottom: 1rem;
+}
+
+.register-container {
+  background-color: #f0f3f2;
+  min-height: 100vh;
+}
+
+.arrow-left {
+  height: 10px;
+  width: auto;
+}
+
+.navigation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3678c2;
+  padding: 1rem 2rem;
+  margin-bottom: 1rem;
+}
+
+.register-title {
+  color: #f0f3f2;
+}
+
+.sign-up-form-btn {
+  background-color: #3678c2 !important;
+  border: none;
+  color: #f0f3f2;
+  font-size: 1rem;
+}
+
+.reg-input {
+  width: 100%;
+  border: 1px solid #f0f3f2;
+  padding: 1rem;
+  border-radius: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  margin-bottom: 0.2rem;
+}
+
+.reg-input:focus {
+  border: 0;
+  outline: none;
+}
+
+.reg-btn-container {
+  padding: 0.5rem;
 }

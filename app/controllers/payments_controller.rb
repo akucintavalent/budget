@@ -29,7 +29,6 @@ class PaymentsController < ApplicationController
     amount = payment_params[:amount]
     @payment = Payment.new(name:, amount:)
     @payment.user_id = current_user.id
-    puts payment_params
     payment_params[:categories].each do |category|
       @payment.categories.push(Category.find(category)) unless category == ''
     end

@@ -122,3 +122,54 @@ body {
 .remember-check-box {
   padding: 1rem;
 }
+
+.category-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  margin: 1rem;
+  padding: 0.2rem 2rem;
+  font-size: 14px;
+}
+
+.icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.category-icon {
+  height: 40px;
+  width: auto;
+}
+
+.category-link {
+  text-decoration: none;
+  text-decoration-color: rgb(85, 93, 103);
+  color: rgb(85, 93, 103);
+}
+
+.add-category-btn-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 6rem;
+}
+
+.add-category-btn {
+  /* padding: 1rem; */
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background-color: #60b523 !important;
+  text-align: center;
+  border: 0;
+  padding-top: 1rem;
+  color: #f0f3f2;
+  text-decoration: none;
+}

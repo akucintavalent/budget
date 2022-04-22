@@ -1,12 +1,14 @@
-<div id="<%= dom_id category %>">
-  <p>
-    <strong>Name:</strong>
-    <%= category.name %>
-  </p>
+<a href="<%= "#{categories_path}/#{category.id}" %>" class="category-link" >
+  <div id="<%= dom_id category %>" class="category-container" >
+    <div class="icon-container">
+      <%= image_tag category.icon, alt: "rss feed", class: "category-icon" %>
+      <%= category.name %>
+    </div>
 
-  <p>
-    <strong>Icon:</strong>
-    <%= category.icon %>
-  </p>
+    <div><%= category.user.name %></div>
 
-</div>
+    <div>
+      Total: $<%= category.payments.inject(0){ |sum, payment| sum + payment.amount } %>
+    </div>
+  </div>
+</a>

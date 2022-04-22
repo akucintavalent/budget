@@ -1,14 +1,18 @@
-<p style="color: green"><%= notice %></p>
+<div class="register-container">
+  <div class="navigation-header">
+    <div> </div>
+    <h4 class="register-title">PAYMENTS</h4>
+    <div class="actions">
+      <%= button_to 'Log out', destroy_user_session_path, method: :delete, class: 'sign-up-form-btn' %>
+    </div>
+  </div>
 
-<h1>Payments</h1>
-
-<div id="payments">
-  <% @payments.each do |payment| %>
-    <%= render payment %>
-    <p>
-      <%= link_to "Show this payment", payment %>
-    </p>
-  <% end %>
+  <div id="payments">
+    <% @payments.each do |payment| %>
+      <%= render payment %>
+    <% end %>
+  </div>
+  <div class="add-category-btn-container">
+    <%= link_to "New payment", new_payment_path, class: "add-category-btn" %>
+  </div>
 </div>
-
-<%= link_to "New payment", new_payment_path %>

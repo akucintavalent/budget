@@ -29,7 +29,6 @@ class PaymentsController < ApplicationController
     amount = payment_params[:amount]
     @payment = Payment.new(name:, amount:)
     @payment.user_id = current_user.id
-    puts payment_params
     payment_params[:categories].each do |category|
       @payment.categories.push(Category.find(category)) unless category == ''
     end
@@ -47,8 +46,13 @@ class PaymentsController < ApplicationController
 
   # PATCH/PUT /payments/1 or /payments/1.json
   def update
+    name = payment_params[:name]
+    amount = payment_params[:amount]
+    categories = payment_params[:categories]
+    categories.delete_at(0)
+    categories = categories.map { |category_id| Category.find(category_id) }
     respond_to do |format|
-      if @payment.update(payment_params)
+      if @payment.update(name:, amount:, categories:)
         format.html { redirect_to payment_url(@payment), notice: "Payment was successfully updated." }
         format.json { render :show, status: :ok, location: @payment }
       else

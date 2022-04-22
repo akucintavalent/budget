@@ -13,10 +13,26 @@ class CategoriesController < ApplicationController
   # GET /categories/new
   def new
     @category = Category.new
+    @category_icons = [
+      ['Education', ActionController::Base.helpers.image_path('education.png')],
+      ['Entertainment', ActionController::Base.helpers.image_path('entertainment.png')],
+      ['Healthcare', ActionController::Base.helpers.image_path('healthcare.png')],
+      ['Shopping', ActionController::Base.helpers.image_path('shopping.png')],
+      ['Utilities', ActionController::Base.helpers.image_path('utilities.png')],
+      ['Other', ActionController::Base.helpers.image_path('other.png')]
+    ]
   end
 
   # GET /categories/1/edit
   def edit
+    @category_icons = [
+      ['Education', ActionController::Base.helpers.image_path('education.png')],
+      ['Entertainment', ActionController::Base.helpers.image_path('entertainment.png')],
+      ['Healthcare', ActionController::Base.helpers.image_path('healthcare.png')],
+      ['Shopping', ActionController::Base.helpers.image_path('shopping.png')],
+      ['Utilities', ActionController::Base.helpers.image_path('utilities.png')],
+      ['Other', ActionController::Base.helpers.image_path('other.png')]
+    ]
   end
 
   # POST /categories or /categories.json

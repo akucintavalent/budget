@@ -1,10 +1,18 @@
-<p style="color: green"><%= notice %></p>
+<div class="register-container">
+  <div class="navigation-header">
+    <div>
+      <a href="<%= categories_path %>">
+        <img class="arrow-left" src="https://budget-app-003.herokuapp.com/assets/back-c280a48ad5854403fd742c6c71f80ff505caec9ff3e28f61dc6a02a1dfbfd30c.svg">
+      </a>
+    </div>
+    <h4 class="register-title">CATEGORY DETAILS</h4>
+    <div> </div>
+  </div>
+  <%= render @category %>
 
-<%= render @category %>
+  <div class="category-details-btn-container">
+    <%= link_to "EDIT", edit_category_path(@category), class: "edit-category-btn" %>
 
-<div>
-  <%= link_to "Edit this category", edit_category_path(@category) %> |
-  <%= link_to "Back to categories", categories_path %>
-
-  <%= button_to "Destroy this category", @category, method: :delete %>
+    <%= button_to "DESTROY", @category, method: :delete, class: "destroy-category-btn" %>
+  </div>
 </div>

@@ -233,3 +233,17 @@ select {
   color: #f0f3f2;
   text-decoration: none;
 }
+
+.payment-height {
+  min-height: 4rem;
+}
+
+.payment-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  margin: 1rem;
+  padding: 0.2rem 0.7em;
+  font-size: 14px;
+}

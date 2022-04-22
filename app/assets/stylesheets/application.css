@@ -247,3 +247,13 @@ select {
   padding: 0.2rem 0.7em;
   font-size: 14px;
 }
+
+.notice {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #3c763d;
+  padding: 15px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  opacity: 1;
+}

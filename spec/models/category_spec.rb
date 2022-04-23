@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Category, type: :model do
   subject do
     user = User.create(name: 'Dan', email: 'dan@test.come', password: 'password')
-    Category.new(user: user, name: 'fitness', icon: 'blahblah')
+    Category.new(user:, name: 'fitness', icon: 'blahblah')
   end
 
   before { subject.save }

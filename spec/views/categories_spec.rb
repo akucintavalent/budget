@@ -9,7 +9,8 @@ RSpec.describe 'Categories', type: :system do
 
   it 'goes to category page' do
     user = User.create!(name: 'Goodman', email: 'bogdan@example.com', password: 'password', confirmed_at: Time.now)
-    category = Category.create!(user:, name: 'Category #1', icon: ActionController::Base.helpers.image_path('education.png'))
+    category = Category.create!(user:, name: 'Category #1',
+                                icon: ActionController::Base.helpers.image_path('education.png'))
     sign_in user
     visit "/categories/#{category.id}"
     expect(page).to have_content(category.name)
@@ -17,7 +18,7 @@ RSpec.describe 'Categories', type: :system do
 
   it 'creates a new category' do
     sign_in User.create!(name: 'Goodman', email: 'bogdan@example.com', password: 'password', confirmed_at: Time.now)
-    visit "/categories/new"
+    visit '/categories/new'
     fill_in 'category_name', with: 'Category #n'
     find(:css, '#category_icon').find(:option, 'Shopping').select_option
     click_button 'CREATE CATEGORY'
@@ -26,7 +27,8 @@ RSpec.describe 'Categories', type: :system do
 
   it 'edits category' do
     user = User.create!(name: 'Goodman', email: 'bogdan@example.com', password: 'password', confirmed_at: Time.now)
-    category = Category.create!(user:, name: 'Category #1', icon: ActionController::Base.helpers.image_path('education.png'))
+    category = Category.create!(user:, name: 'Category #1',
+                                icon: ActionController::Base.helpers.image_path('education.png'))
     sign_in user
     visit "/categories/#{category.id}/edit"
     fill_in 'category_name', with: 'Category ###', fill_options: { clear: :backspace }
@@ -37,7 +39,8 @@ RSpec.describe 'Categories', type: :system do
 
   it 'removes category' do
     user = User.create!(name: 'Goodman', email: 'bogdan@example.com', password: 'password', confirmed_at: Time.now)
-    category = Category.create!(user:, name: 'Category #1', icon: ActionController::Base.helpers.image_path('education.png'))
+    category = Category.create!(user:, name: 'Category #1',
+                                icon: ActionController::Base.helpers.image_path('education.png'))
     sign_in user
     visit "/categories/#{category.id}"
     click_button 'DESTROY'

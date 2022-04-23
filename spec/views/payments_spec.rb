@@ -10,7 +10,8 @@ RSpec.describe 'Payments', type: :system do
   it 'goes to payment details' do
     user = User.create!(name: 'Badman', email: 'meri@example.com', password: 'password', confirmed_at: Time.now)
     sign_in user
-    category = Category.create!(user:, name: 'Category #1', icon: ActionController::Base.helpers.image_path('education.png'))
+    category = Category.create!(user:, name: 'Category #1',
+                                icon: ActionController::Base.helpers.image_path('education.png'))
     payment = Payment.new(user:, name: 'Payment #1', amount: 731)
     payment.categories.push(category)
     payment.save
@@ -22,11 +23,12 @@ RSpec.describe 'Payments', type: :system do
   it 'creates new payment' do
     user = User.create!(name: 'Badman', email: 'meri@example.com', password: 'password', confirmed_at: Time.now)
     sign_in user
-    category = Category.create!(user:, name: 'Category #1', icon: ActionController::Base.helpers.image_path('education.png'))
+    category = Category.create!(user:, name: 'Category #1',
+                                icon: ActionController::Base.helpers.image_path('education.png'))
     visit '/payments/new'
     fill_in 'payment_name', with: 'Transaction #1'
     fill_in 'payment_amount', with: 73
-    find("#payment_categories option").select_option
+    find('#payment_categories option').select_option
     click_button 'CREATE PAYMENT'
     sleep(2)
     expect(page).to have_content(Payment.last.name)
@@ -37,14 +39,15 @@ RSpec.describe 'Payments', type: :system do
   it 'goes to edit payment details page' do
     user = User.create!(name: 'Badman', email: 'meri@example.com', password: 'password', confirmed_at: Time.now)
     sign_in user
-    category = Category.create!(user:, name: 'Category #1', icon: ActionController::Base.helpers.image_path('education.png'))
+    category = Category.create!(user:, name: 'Category #1',
+                                icon: ActionController::Base.helpers.image_path('education.png'))
     payment = Payment.new(user:, name: 'Payment #1', amount: 731)
     payment.categories.push(category)
     payment.save
     visit "/payments/#{payment.id}/edit"
     fill_in 'payment_name', with: 'Transaction #1'
     fill_in 'payment_amount', with: 73
-    find("#payment_categories option").select_option
+    find('#payment_categories option').select_option
     click_button 'SUBMIT'
     sleep(2)
     expect(page).to have_content(Payment.last.name)
@@ -55,7 +58,8 @@ RSpec.describe 'Payments', type: :system do
   it 'delete payment' do
     user = User.create!(name: 'Badman', email: 'meri@example.com', password: 'password', confirmed_at: Time.now)
     sign_in user
-    category = Category.create!(user:, name: 'Category #1', icon: ActionController::Base.helpers.image_path('education.png'))
+    category = Category.create!(user:, name: 'Category #1',
+                                icon: ActionController::Base.helpers.image_path('education.png'))
     payment = Payment.new(user:, name: 'Payment #1', amount: 731)
     payment.categories.push(category)
     payment.save

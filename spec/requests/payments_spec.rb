@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Payments", type: :request do
+RSpec.describe 'Payments', type: :request do
   it 'GET /payments' do
     sign_in User.create!(name: 'Badman', email: 'meri@example.com', password: 'password', confirmed_at: Time.now)
     get('/payments')
@@ -11,7 +11,8 @@ RSpec.describe "Payments", type: :request do
   it 'GET /payments/:id' do
     user = User.create!(name: 'Badman', email: 'meri@example.com', password: 'password', confirmed_at: Time.now)
     sign_in user
-    category = Category.create!(user:, name: 'Category #1', icon: ActionController::Base.helpers.image_path('education.png'))
+    category = Category.create!(user:, name: 'Category #1',
+                                icon: ActionController::Base.helpers.image_path('education.png'))
     payment = Payment.new(user:, name: 'Payment #1', amount: 731)
     payment.categories.push(category)
     payment.save
@@ -19,7 +20,7 @@ RSpec.describe "Payments", type: :request do
     expect(response).to render_template('show')
     expect(response).to have_http_status(:ok)
   end
-  
+
   it 'GET /payments/new' do
     user = User.create!(name: 'Badman', email: 'meri@example.com', password: 'password', confirmed_at: Time.now)
     sign_in user
@@ -31,7 +32,8 @@ RSpec.describe "Payments", type: :request do
   it 'POST /payments' do
     user = User.create!(name: 'Badman', email: 'meri@example.com', password: 'password', confirmed_at: Time.now)
     sign_in user
-    category = Category.create!(user:, name: 'Category #1', icon: ActionController::Base.helpers.image_path('education.png'))
+    category = Category.create!(user:, name: 'Category #1',
+                                icon: ActionController::Base.helpers.image_path('education.png'))
     post('/payments', params: { payment: { name: 'Payment #n', amount: 33, categories: [category.id] } })
     expect(Payment.last.name).to eq 'Payment #n'
     expect(Payment.last.amount).to eq 33
@@ -42,7 +44,8 @@ RSpec.describe "Payments", type: :request do
   it 'PUT /payments/:id' do
     user = User.create!(name: 'Badman', email: 'meri@example.com', password: 'password', confirmed_at: Time.now)
     sign_in user
-    category = Category.create!(user:, name: 'Category #1', icon: ActionController::Base.helpers.image_path('education.png'))
+    category = Category.create!(user:, name: 'Category #1',
+                                icon: ActionController::Base.helpers.image_path('education.png'))
     payment = Payment.new(user:, name: 'Payment #1', amount: 731)
     payment.categories.push(category)
     payment.save
@@ -56,7 +59,8 @@ RSpec.describe "Payments", type: :request do
   it 'GET /payments/:id/edit' do
     user = User.create!(name: 'Badman', email: 'meri@example.com', password: 'password', confirmed_at: Time.now)
     sign_in user
-    category = Category.create!(user:, name: 'Category #1', icon: ActionController::Base.helpers.image_path('education.png'))
+    category = Category.create!(user:, name: 'Category #1',
+                                icon: ActionController::Base.helpers.image_path('education.png'))
     payment = Payment.new(user:, name: 'Payment #1', amount: 731)
     payment.categories.push(category)
     payment.save
@@ -68,7 +72,8 @@ RSpec.describe "Payments", type: :request do
   it 'DELETE /payments/:id' do
     user = User.create!(name: 'Badman', email: 'meri@example.com', password: 'password', confirmed_at: Time.now)
     sign_in user
-    category = Category.create!(user:, name: 'Category #1', icon: ActionController::Base.helpers.image_path('education.png'))
+    category = Category.create!(user:, name: 'Category #1',
+                                icon: ActionController::Base.helpers.image_path('education.png'))
     payment = Payment.new(user:, name: 'Payment #1', amount: 731)
     payment.categories.push(category)
     payment.save

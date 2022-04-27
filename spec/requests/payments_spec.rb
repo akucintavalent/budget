@@ -2,14 +2,14 @@ require 'rails_helper'
 
 RSpec.describe 'Payments', type: :request do
   it 'GET /payments' do
-    sign_in User.create!(name: 'Badman', email: 'meri@example.com', password: 'password', confirmed_at: Time.now)
+    sign_in User.create!(name: 'Badman', email: 'meri@example.com', password: 'password')
     get('/payments')
     expect(response).to render_template('index')
     expect(response).to have_http_status(:ok)
   end
 
   it 'GET /payments/:id' do
-    user = User.create!(name: 'Badman', email: 'meri@example.com', password: 'password', confirmed_at: Time.now)
+    user = User.create!(name: 'Badman', email: 'meri@example.com', password: 'password')
     sign_in user
     category = Category.create!(user:, name: 'Category #1',
                                 icon: ActionController::Base.helpers.image_path('education.png'))
@@ -22,7 +22,7 @@ RSpec.describe 'Payments', type: :request do
   end
 
   it 'GET /payments/new' do
-    user = User.create!(name: 'Badman', email: 'meri@example.com', password: 'password', confirmed_at: Time.now)
+    user = User.create!(name: 'Badman', email: 'meri@example.com', password: 'password')
     sign_in user
     get('/payments/new')
     expect(response).to render_template('new')
@@ -30,7 +30,7 @@ RSpec.describe 'Payments', type: :request do
   end
 
   it 'POST /payments' do
-    user = User.create!(name: 'Badman', email: 'meri@example.com', password: 'password', confirmed_at: Time.now)
+    user = User.create!(name: 'Badman', email: 'meri@example.com', password: 'password')
     sign_in user
     category = Category.create!(user:, name: 'Category #1',
                                 icon: ActionController::Base.helpers.image_path('education.png'))
@@ -42,7 +42,7 @@ RSpec.describe 'Payments', type: :request do
   end
 
   it 'PUT /payments/:id' do
-    user = User.create!(name: 'Badman', email: 'meri@example.com', password: 'password', confirmed_at: Time.now)
+    user = User.create!(name: 'Badman', email: 'meri@example.com', password: 'password')
     sign_in user
     category = Category.create!(user:, name: 'Category #1',
                                 icon: ActionController::Base.helpers.image_path('education.png'))
@@ -57,7 +57,7 @@ RSpec.describe 'Payments', type: :request do
   end
 
   it 'GET /payments/:id/edit' do
-    user = User.create!(name: 'Badman', email: 'meri@example.com', password: 'password', confirmed_at: Time.now)
+    user = User.create!(name: 'Badman', email: 'meri@example.com', password: 'password')
     sign_in user
     category = Category.create!(user:, name: 'Category #1',
                                 icon: ActionController::Base.helpers.image_path('education.png'))
@@ -70,7 +70,7 @@ RSpec.describe 'Payments', type: :request do
   end
 
   it 'DELETE /payments/:id' do
-    user = User.create!(name: 'Badman', email: 'meri@example.com', password: 'password', confirmed_at: Time.now)
+    user = User.create!(name: 'Badman', email: 'meri@example.com', password: 'password')
     sign_in user
     category = Category.create!(user:, name: 'Category #1',
                                 icon: ActionController::Base.helpers.image_path('education.png'))

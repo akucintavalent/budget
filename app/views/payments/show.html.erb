@@ -10,9 +10,11 @@
   </div>
   <%= render @payment %>
 
-  <div class="category-details-btn-container">
-    <%= link_to "EDIT", edit_payment_path(@payment), class: "edit-category-btn" %>
+  <% if can? :update, @payment %>
+    <div class="category-details-btn-container">
+      <%= link_to "EDIT", edit_payment_path(@payment), class: "edit-category-btn" %>
 
-    <%= button_to "DESTROY", @payment, method: :delete, class: "destroy-category-btn" %>
-  </div>
+      <%= button_to "DESTROY", @payment, method: :delete, class: "destroy-category-btn" %>
+    </div>
+  <% end %>
 </div>

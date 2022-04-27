@@ -2,13 +2,13 @@ require 'rails_helper'
 
 RSpec.describe 'Payments', type: :system do
   it 'goes to payments page' do
-    sign_in User.create!(name: 'Badman', email: 'meri@example.com', password: 'password', confirmed_at: Time.now)
+    sign_in User.create!(name: 'Badman', email: 'meri@example.com', password: 'password')
     visit '/payments'
     expect(page).to have_content('PAYMENTS')
   end
 
   it 'goes to payment details' do
-    user = User.create!(name: 'Badman', email: 'meri@example.com', password: 'password', confirmed_at: Time.now)
+    user = User.create!(name: 'Badman', email: 'meri@example.com', password: 'password')
     sign_in user
     category = Category.create!(user:, name: 'Category #1',
                                 icon: ActionController::Base.helpers.image_path('education.png'))
@@ -21,7 +21,7 @@ RSpec.describe 'Payments', type: :system do
   end
 
   it 'creates new payment' do
-    user = User.create!(name: 'Badman', email: 'meri@example.com', password: 'password', confirmed_at: Time.now)
+    user = User.create!(name: 'Badman', email: 'meri@example.com', password: 'password')
     sign_in user
     category = Category.create!(user:, name: 'Category #1',
                                 icon: ActionController::Base.helpers.image_path('education.png'))
@@ -37,7 +37,7 @@ RSpec.describe 'Payments', type: :system do
   end
 
   it 'goes to edit payment details page' do
-    user = User.create!(name: 'Badman', email: 'meri@example.com', password: 'password', confirmed_at: Time.now)
+    user = User.create!(name: 'Badman', email: 'meri@example.com', password: 'password')
     sign_in user
     category = Category.create!(user:, name: 'Category #1',
                                 icon: ActionController::Base.helpers.image_path('education.png'))
@@ -56,7 +56,7 @@ RSpec.describe 'Payments', type: :system do
   end
 
   it 'delete payment' do
-    user = User.create!(name: 'Badman', email: 'meri@example.com', password: 'password', confirmed_at: Time.now)
+    user = User.create!(name: 'Badman', email: 'meri@example.com', password: 'password')
     sign_in user
     category = Category.create!(user:, name: 'Category #1',
                                 icon: ActionController::Base.helpers.image_path('education.png'))

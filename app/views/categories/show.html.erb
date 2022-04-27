@@ -10,9 +10,11 @@
   </div>
   <%= render @category %>
 
-  <div class="category-details-btn-container">
-    <%= link_to "EDIT", edit_category_path(@category), class: "edit-category-btn" %>
+  <% if can? update:, @category %>
+    <div class="category-details-btn-container">
+      <%= link_to "EDIT", edit_category_path(@category), class: "edit-category-btn" %>
 
-    <%= button_to "DESTROY", @category, method: :delete, class: "destroy-category-btn" %>
-  </div>
+      <%= button_to "DESTROY", @category, method: :delete, class: "destroy-category-btn" %>
+    </div>
+  <% end %>
 </div>

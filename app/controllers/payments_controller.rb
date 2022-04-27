@@ -15,7 +15,9 @@ class PaymentsController < ApplicationController
   end
 
   # GET /payments/1/edit
-  def edit; end
+  def edit
+    raise ActiveRecord::RecordNotFound, 'Record not found.' if cannot? :update, Payment.find(params[:id])
+  end
 
   # POST /payments or /payments.json
   def create
@@ -44,6 +46,8 @@ class PaymentsController < ApplicationController
 
   # PATCH/PUT /payments/1 or /payments/1.json
   def update
+    raise ActiveRecord::RecordNotFound, 'Record not found.' if cannot? :update, Payment.find(params[:id])
+
     name = payment_params[:name]
     amount = payment_params[:amount]
     categories = payment_params[:categories]
@@ -62,6 +66,8 @@ class PaymentsController < ApplicationController
 
   # DELETE /payments/1 or /payments/1.json
   def destroy
+    raise ActiveRecord::RecordNotFound, 'Record not found.' if cannot? :update, Payment.find(params[:id])
+
     @payment.destroy
 
     respond_to do |format|

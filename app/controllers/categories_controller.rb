@@ -7,7 +7,10 @@ class CategoriesController < ApplicationController
   end
 
   # GET /categories/1 or /categories/1.json
-  def show; end
+  def show
+    @payments = Category.find(params[:id]).payments
+    render 'payments/index'
+  end
 
   # GET /categories/new
   def new
@@ -24,6 +27,8 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1/edit
   def edit
+    raise ActiveRecord::RecordNotFound, 'Record not found.' if cannot? :update, Category.find(params[:id])
+
     @category_icons = [
       ['Education', ActionController::Base.helpers.image_path('education.png')],
       ['Entertainment', ActionController::Base.helpers.image_path('entertainment.png')],
@@ -56,6 +61,8 @@ class CategoriesController < ApplicationController
 
   # PATCH/PUT /categories/1 or /categories/1.json
   def update
+    raise ActiveRecord::RecordNotFound, 'Record not found.' if cannot? :update, Category.find(params[:id])
+
     respond_to do |format|
       if @category.update(category_params)
         format.html { redirect_to category_url(@category), notice: 'Category was successfully updated.' }
@@ -69,6 +76,8 @@ class CategoriesController < ApplicationController
 
   # DELETE /categories/1 or /categories/1.json
   def destroy
+    raise ActiveRecord::RecordNotFound, 'Record not found.' if cannot? :update, Category.find(params[:id])
+
     @category.destroy
 
     respond_to do |format|

@@ -8,7 +8,7 @@ RSpec.describe 'Login', type: :system do
 
   it 'inputs proper credentials' do
     visit '/users/sign_in'
-    User.create!(name: 'Goodman', email: 'bogdan@example.com', password: 'password', confirmed_at: Time.now)
+    User.create!(name: 'Goodman', email: 'bogdan@example.com', password: 'password')
     fill_in 'user_email', with: 'bogdan@example.com'
     fill_in 'user_password', with: 'password'
     click_button 'Log in'

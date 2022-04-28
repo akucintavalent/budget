@@ -1,7 +1,7 @@
 <div class="register-container">
   <div class="navigation-header">
     <div>
-      <a href="<%= payments_path %>">
+      <a href="<%= if @payment.categories[0] then category_path(@payment.categories[0]) else payments_path end %>">
         <img class="arrow-left" src="https://budget-app-003.herokuapp.com/assets/back-c280a48ad5854403fd742c6c71f80ff505caec9ff3e28f61dc6a02a1dfbfd30c.svg">
       </a>
     </div>

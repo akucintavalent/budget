@@ -38,7 +38,7 @@ RSpec.describe 'Payments', type: :request do
     expect(Payment.last.name).to eq 'Payment #n'
     expect(Payment.last.amount).to eq 33
     expect(Payment.last.categories[0]).to eq category
-    expect(response).to redirect_to("/payments/#{Payment.last.id}")
+    expect(response).to redirect_to("/categories/#{Payment.last.categories[0].id}")
   end
 
   it 'PUT /payments/:id' do
@@ -78,7 +78,7 @@ RSpec.describe 'Payments', type: :request do
     payment.categories.push(category)
     payment.save
     delete("/payments/#{payment.id}")
-    expect(response).to redirect_to(payments_url)
+    expect(response).to redirect_to(categories_url)
     expect(Payment.where(id: payment.id)[0]).to eq nil
   end
 end

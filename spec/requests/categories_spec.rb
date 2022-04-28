@@ -32,7 +32,7 @@ RSpec.describe 'Categories', type: :request do
                                icon: ActionController::Base.helpers.image_path('education.png') } })
     expect(Category.last.name).to eq 'Category #n'
     expect(Category.last.icon).to eq ActionController::Base.helpers.image_path('education.png')
-    expect(response).to redirect_to("/categories/#{Category.last.id}")
+    expect(response).to redirect_to('/categories')
   end
 
   it 'PUT /categories/:id' do
@@ -45,7 +45,7 @@ RSpec.describe 'Categories', type: :request do
     category.reload
     expect(category.name).to eq 'Category num.1'
     expect(category.icon).to eq ActionController::Base.helpers.image_path('other.png')
-    expect(response).to redirect_to("/categories/#{category.id}")
+    expect(response).to redirect_to('/categories')
   end
 
   it 'GET /categories/:id/edit' do

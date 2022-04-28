@@ -49,7 +49,7 @@ RSpec.describe 'Payments', type: :system do
     fill_in 'payment_amount', with: 73
     find('#payment_categories option').select_option
     click_button 'SUBMIT'
-    sleep(2)
+    sleep(4)
     expect(page).to have_content(Payment.last.name)
     expect(page).to have_content(Payment.last.amount)
     expect(page).to have_content(category.name)
@@ -65,6 +65,6 @@ RSpec.describe 'Payments', type: :system do
     payment.save
     visit "/payments/#{payment.id}"
     click_button 'DESTROY'
-    expect(page).to have_current_path(payments_path)
+    expect(page).to have_current_path(categories_path)
   end
 end

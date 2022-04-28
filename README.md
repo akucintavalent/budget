@@ -11,8 +11,8 @@
 
 ## Live Demo 
 
-- [Check the app](https://fathomless-inlet-13455.herokuapp.com/)
-- [Video Presentation](https://www.loom.com/share/443abd715e8140fa917faa549a8571d5)
+- [Check the app](https://stormy-journey-61198.herokuapp.com/)
+- [Video Presentation](https://www.loom.com/share/7ebab92f3ae6427980222a777696bd5b)
 
 ## Getting Started
 

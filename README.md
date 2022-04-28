@@ -12,7 +12,7 @@
 ## Live Demo 
 
 - [Check the app](https://stormy-journey-61198.herokuapp.com/)
-- [Video Presentation](https://www.loom.com/share/7ebab92f3ae6427980222a777696bd5b)
+- [Video Presentation](https://www.loom.com/share/dcf7000f78ac4874b3d77b25c007552f)
 
 ## Getting Started
 

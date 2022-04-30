@@ -1,0 +1,18 @@
+<div class="register-container">
+  <div class="navigation-header">
+    <div> </div>
+    <h4 class="register-title">CATEGORIES</h4>
+    <div class="actions">
+      <%= button_to 'Log out', destroy_user_session_path, method: :delete, class: 'sign-up-form-btn' %>
+    </div>
+  </div>
+
+  <div id="categories">
+    <% @categories.each do |category| %>
+      <%= render category %>
+    <% end %>
+  </div>
+  <div class="add-category-btn-container">
+    <%= link_to "NEW CATEGORY", new_category_path, class: "add-category-btn" %>
+  </div>
+</div>

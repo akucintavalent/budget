@@ -1,0 +1,40 @@
+<div class="register-container">
+  <div class="navigation-header">
+    <div>
+      <a href="<%= if @payment.categories[0] then category_path(@payment.categories[0]) else payments_path end %>">
+        <img class="arrow-left" src="https://budget-app-003.herokuapp.com/assets/back-c280a48ad5854403fd742c6c71f80ff505caec9ff3e28f61dc6a02a1dfbfd30c.svg">
+      </a>
+    </div>
+    <h4 class="register-title"><%= title %></h4>
+    <div> </div>
+  </div>
+  <%= form_with(model: payment) do |form| %>
+    <% if payment.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
+
+        <ul>
+          <% payment.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div>
+      <%= form.text_field :name, placeholder: "Name", class: "reg-input" %>
+    </div>
+
+    <div>
+      <%= form.number_field :amount, placeholder: "Amount", class: "reg-input" %>
+    </div>
+
+    <div>
+      <%= form.select :categories, Category.where(user_id: current_user.id).collect {|cat| [cat.name, cat.id]}, { include_blank: false }, required: true, class:"", multiple: true %>
+    </div>
+
+    <div class="add-category-btn-container">
+      <%= form.submit button_title, class: "create-category-btn" %>
+    </div>
+  <% end %>
+</div>

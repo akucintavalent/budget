@@ -1,0 +1,34 @@
+<div class="register-container">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="navigation-header">
+      <div>
+        <a href="/">
+          <img class="arrow-left" src="https://budget-app-003.herokuapp.com/assets/back-c280a48ad5854403fd742c6c71f80ff505caec9ff3e28f61dc6a02a1dfbfd30c.svg">
+        </a>
+      </div>
+      <h4 class="register-title">LOGGING IN</h4>
+      <div class="actions">
+        <%= f.submit 'Log in', class: 'sign-up-form-btn' %>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email', class: "reg-input" %>
+    </div>
+
+    <div class="field">
+      <%= f.password_field :password, autocomplete: "current-password", placeholder: 'Password', class: "reg-input" %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="field remember-check-box">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <div class="btn-container reg-btn-container">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

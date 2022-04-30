@@ -1,0 +1,20 @@
+<a href="<%= "#{payments_path}/#{payment.id}" %>" class="category-link" >
+  <div id="<%= dom_id payment %>" class="payment-container payment-height">
+    <div>
+      <strong>Categories:</strong>
+      <%= payment.categories.map { |category| category.name }.join(', ') %>
+      &nbsp;
+    </div>
+
+    <p>
+      <strong>Name:</strong>
+      <%= payment.name %>
+      &nbsp;
+    </p>
+
+    <p>
+      <strong>Amount:</strong>
+      $<%= payment.amount %>
+    </p>
+  </div>
+</a>

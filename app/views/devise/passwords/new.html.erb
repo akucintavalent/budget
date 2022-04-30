@@ -1,0 +1,24 @@
+<div class="register-container">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="navigation-header">
+      <div>
+        <a href="/">
+          <img class="arrow-left" src="https://budget-app-003.herokuapp.com/assets/back-c280a48ad5854403fd742c6c71f80ff505caec9ff3e28f61dc6a02a1dfbfd30c.svg">
+        </a>
+      </div>
+      <div class="actions">
+        <%= f.submit 'Send me reset password instructions', class: 'sign-up-form-btn' %>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email', class: "reg-input" %>
+    </div>
+  <% end %>
+
+  <div class="btn-container reg-btn-container">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
